@@ -51,25 +51,28 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="page page-narrow">
-      <h1>Sign in</h1>
-      <p className="muted">Sign in to view and manage customer inquiries.</p>
+    <main className="auth-screen">
+      <div className="auth-card">
+        <p className="auth-brand">Inquiry Desk</p>
+        <h1>Sign in</h1>
+        <p className="muted">Sign in to view and manage customer inquiries.</p>
 
-      {sessionExpired && !formError && (
-        <div className="alert alert-info" role="status">Your session has expired. Please sign in again.</div>
-      )}
-      {formError && <div className="alert alert-error" role="alert">{formError}</div>}
+        {sessionExpired && !formError && (
+          <div className="alert alert-info" role="status">Your session has expired. Please sign in again.</div>
+        )}
+        {formError && <div className="alert alert-error" role="alert">{formError}</div>}
 
-      <form onSubmit={handleSubmit} noValidate className="form">
-        <Field label="Email" name="email" type="email" autoComplete="username"
-          value={values.email} error={fieldErrors.email} onChange={handleChange} autoFocus />
-        <Field label="Password" name="password" type="password" autoComplete="current-password"
-          value={values.password} error={fieldErrors.password} onChange={handleChange} />
+        <form onSubmit={handleSubmit} noValidate className="form">
+          <Field label="Email" name="email" type="email" autoComplete="username"
+            value={values.email} error={fieldErrors.email} onChange={handleChange} autoFocus />
+          <Field label="Password" name="password" type="password" autoComplete="current-password"
+            value={values.password} error={fieldErrors.password} onChange={handleChange} />
 
-        <button type="submit" className="btn" disabled={submitting}>
-          {submitting ? 'Signing in…' : 'Sign in'}
-        </button>
-      </form>
+          <button type="submit" className="btn" disabled={submitting}>
+            {submitting ? 'Signing in…' : 'Sign in'}
+          </button>
+        </form>
+      </div>
     </main>
   );
 }
