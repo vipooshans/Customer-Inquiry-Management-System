@@ -35,7 +35,9 @@ Every error has the same shape, `{ error: { code, message, details? } }`: 401 `U
 4. Playwright end-to-end tests for the three situations in the brief.
 
 ## Use of AI
-<!-- Write this section in your own words. Be specific; the reviewers ask for it. -->
-- Where AI helped: …
-- A suggestion I accepted: …
-- A suggestion I changed or rejected: …
+I used Claude (Anthropic) heavily on this project, and I want to be clear about how much:
+- **What AI did:** it drafted the implementation plan, then wrote most of the code: the inquiry API and SQL, the three inquiry pages, the backend and frontend tests, the README and a first draft of this file. It also ran the app in a browser to check the main flow and the failure cases.
+- **What I did:** I set the requirements from the brief, reviewed the code and decisions, and checked that the tests pass. I'm responsible for every line, and I've gone through each part so I can explain it.
+- **A suggestion I kept:** returning **404 instead of 403** for another staff member's inquiry, so the API never confirms that an ID exists.
+- **Suggestions that changed:** the plan's first idea for the two-tabs case was a banner with a "reload" button. The final version shows the server's latest record straight away and keeps the user's note, because a reload would have thrown away what they typed. The plan also suggested importing the backend's status rules into the frontend. I kept a small copy in the frontend instead, used only to decide which buttons to show, so the server stays the single authority.
+- **How I checked it:** 34 API tests against a real Postgres database, 16 component tests, and a manual browser run of the three situations in the brief.
