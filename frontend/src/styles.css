@@ -1,3 +1,54 @@
+:root {
+  --text: #1f2328;
+  --muted: #59636e;
+  --bg: #f6f8fa;
+  --surface: #ffffff;
+  --border: #d1d9e0;
+  --primary: #0969da;
+  --primary-hover: #0757b8;
+  --danger: #cf222e;
+  --danger-bg: #ffebe9;
+  --info-bg: #ddf4ff;
+}
+
 * { box-sizing: border-box; }
-body { margin: 0; font-family: system-ui, sans-serif; color: #1f2328; background: #f6f8fa; }
+body { margin: 0; font-family: system-ui, sans-serif; color: var(--text); background: var(--bg); }
+h1 { margin: 0 0 8px; }
+
 .page { max-width: 960px; margin: 0 auto; padding: 24px 16px; }
+.page-narrow { max-width: 400px; padding-top: 64px; }
+.muted { color: var(--muted); }
+
+/* Header */
+.app-header {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 12px 16px; background: var(--surface); border-bottom: 1px solid var(--border);
+}
+.app-title { font-weight: 600; color: var(--text); text-decoration: none; }
+.app-user { display: flex; align-items: center; gap: 12px; }
+
+/* Forms */
+.form { display: flex; flex-direction: column; gap: 16px; margin-top: 16px; }
+.field { display: flex; flex-direction: column; gap: 4px; }
+.field label { font-weight: 600; font-size: 14px; }
+.field input, .field textarea, .field select {
+  font: inherit; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface);
+}
+.field input:focus, .field textarea:focus, .field select:focus { outline: 2px solid var(--primary); outline-offset: -1px; }
+.field [aria-invalid='true'] { border-color: var(--danger); }
+.field-error { margin: 0; color: var(--danger); font-size: 13px; }
+
+/* Buttons */
+.btn {
+  font: inherit; font-weight: 600; padding: 8px 14px; border-radius: 6px; cursor: pointer;
+  border: 1px solid var(--primary); background: var(--primary); color: #fff;
+}
+.btn:hover:not(:disabled) { background: var(--primary-hover); }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.btn-secondary { background: var(--surface); color: var(--text); border-color: var(--border); }
+.btn-secondary:hover:not(:disabled) { background: var(--bg); }
+
+/* Alerts */
+.alert { padding: 10px 12px; border-radius: 6px; margin: 12px 0; border: 1px solid transparent; }
+.alert-error { background: var(--danger-bg); border-color: #ffcecb; color: #82071e; }
+.alert-info { background: var(--info-bg); border-color: #b6e3ff; }
