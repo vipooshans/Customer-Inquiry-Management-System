@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import request from 'supertest';
 import { createApp } from '../src/app.js';
 
-// Scaffold smoke test. Add the real rule tests from PLAN.md next to it.
+// Smoke tests for the app wiring.
 describe('app scaffold', () => {
   const app = createApp();
 

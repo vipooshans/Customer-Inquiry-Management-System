@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
 import { apiFetch, ApiError } from '../api/client.js';
 
-// Scaffold test for the fetch wrapper. Add the UI tests from PLAN.md next to it.
+// The fetch wrapper turns server errors into ApiError objects pages can branch on.
 describe('apiFetch', () => {
   afterEach(() => vi.unstubAllGlobals());
 
