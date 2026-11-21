@@ -10,6 +10,13 @@ export class ApiError extends Error {
   }
 }
 
+// Called when any non-auth request gets a 401 (e.g. the session expired while the
+// app was open). AuthProvider registers a handler that signs the user out locally.
+let onUnauthorized = () => {};
+export function setUnauthorizedHandler(fn) {
+  onUnauthorized = fn;
+}
+
 export async function apiFetch(path, { method = 'GET', body, signal } = {}) {
   let res;
   try {
@@ -27,6 +34,8 @@ export async function apiFetch(path, { method = 'GET', body, signal } = {}) {
 
   const data = res.status === 204 ? null : await res.json().catch(() => null);
   if (!res.ok) {
+    // /auth/* handle their own 401s (wrong password, not signed in yet).
+    if (res.status === 401 && !path.startsWith('/auth/')) onUnauthorized();
     const e = data?.error ?? {};
     throw new ApiError(res.status, e.code ?? 'UNKNOWN', e.message ?? `Request failed (${res.status})`, e.details);
   }
