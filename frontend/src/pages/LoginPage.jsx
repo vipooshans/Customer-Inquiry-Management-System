@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/AuthContext.jsx';
+import Field from '../components/Field.jsx';
 
 // Same rules as the backend's loginSchema. The client check gives instant
 // feedback; the server check is the one that actually protects the API.
@@ -70,18 +71,5 @@ export default function LoginPage() {
         </button>
       </form>
     </main>
-  );
-}
-
-// Label + input + inline error, wired up for screen readers.
-function Field({ label, name, error, ...inputProps }) {
-  const errorId = `${name}-error`;
-  return (
-    <div className="field">
-      <label htmlFor={name}>{label}</label>
-      <input id={name} name={name} aria-invalid={Boolean(error)}
-        aria-describedby={error ? errorId : undefined} {...inputProps} />
-      {error && <p id={errorId} className="field-error">{error}</p>}
-    </div>
   );
 }

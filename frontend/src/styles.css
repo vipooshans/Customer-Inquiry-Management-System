@@ -52,3 +52,54 @@ h1 { margin: 0 0 8px; }
 .alert { padding: 10px 12px; border-radius: 6px; margin: 12px 0; border: 1px solid transparent; }
 .alert-error { background: var(--danger-bg); border-color: #ffcecb; color: #82071e; }
 .alert-info { background: var(--info-bg); border-color: #b6e3ff; }
+
+/* Layout helpers */
+.page-medium { max-width: 720px; }
+.page-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.page-header h1 { margin: 0; }
+h2 { font-size: 18px; margin: 24px 0 8px; }
+.small { font-size: 13px; }
+.nowrap { white-space: nowrap; }
+.pre-wrap { white-space: pre-wrap; }
+a { color: var(--primary); }
+a.btn { display: inline-block; text-decoration: none; }
+a.btn-secondary { color: var(--text); }
+.field-hint { margin: 0; color: var(--muted); font-size: 13px; }
+.field textarea { resize: vertical; }
+.form-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* Toolbar: status tabs + search */
+.toolbar { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; margin: 16px 0; }
+.tabs { display: flex; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; background: var(--surface); }
+.tab { font: inherit; padding: 6px 12px; border: 0; border-right: 1px solid var(--border); background: none; cursor: pointer; }
+.tab:last-child { border-right: 0; }
+.tab-active { background: var(--primary); color: #fff; }
+.search { font: inherit; padding: 6px 10px; border: 1px solid var(--border); border-radius: 6px; min-width: 260px; }
+
+/* Table */
+.table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; }
+.table th, .table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.table th { font-size: 13px; color: var(--muted); font-weight: 600; }
+.row-link { cursor: pointer; }
+.row-link:hover { background: var(--bg); }
+.is-refreshing { opacity: 0.6; transition: opacity 0.15s; }
+
+/* Status badges */
+.badge { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; white-space: nowrap; }
+.badge-new { background: #ddf4ff; color: #0550ae; }
+.badge-in_progress { background: #fff8c5; color: #7d4e00; }
+.badge-resolved { background: #dafbe1; color: #116329; }
+
+/* Empty state, cards, details, history */
+.empty { text-align: center; padding: 40px 16px; background: var(--surface); border: 1px dashed var(--border); border-radius: 6px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 16px; margin: 16px 0; display: flex; flex-direction: column; gap: 12px; }
+.card h2 { margin: 0; }
+.details { display: grid; grid-template-columns: 120px 1fr; gap: 8px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 16px; margin: 0; }
+.details dt { font-weight: 600; color: var(--muted); }
+.details dd { margin: 0; }
+.history { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.history li { border-left: 3px solid var(--border); padding-left: 12px; }
+.history-note { margin: 4px 0; padding: 6px 8px; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; }
+.alert-success { background: #dafbe1; border-color: #aceebb; color: #116329; }
+.alert-warning { background: #fff8c5; border-color: #f2e08b; color: #7d4e00; }
+.alert p { margin: 0 0 8px; }
